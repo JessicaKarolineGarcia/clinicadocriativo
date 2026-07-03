@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica do Criativo — Marketing completo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F1E3;
+    --card:#FFFCF5;
+    --ink:#2B1F22;
+    --ink-soft:#7A655D;
+    --brown:#6E4C46;
+    --rose:#D9A7AC;
+    --blue:#3E6690;
+    --red:#A32C25;
+    --tan:#D3A860;
+    --olive:#6E6E38;
+    --lilac:#E7D5DA;
+    --burgundy:#7A2732;
+    --line:#DCCBB4;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 12% 6%, rgba(62,102,144,0.05), transparent 40%),
+      radial-gradient(circle at 90% 90%, rgba(122,39,50,0.05), transparent 45%),
+      var(--paper);
+    color:var(--ink);
+    font-family:'Cormorant Garamond', serif;
+    font-size:18px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .sheet{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 22px 90px;
+  }
+
+  .script{
+    font-family:'Mrs Saint Delafield', cursive;
+    font-size:1.5em;
+    line-height:1;
+    color:var(--burgundy);
+  }
+
+  /* ---------- letterhead ---------- */
+  .letterhead{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:28px 0 18px;
+    border-bottom:1.5px solid var(--line);
+    margin-bottom:8px;
+    gap:16px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .crest{
+    width:38px;height:38px;
+    border:1.5px solid var(--brown);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .crest svg{width:18px;height:18px;stroke:var(--brown);}
+  .brand-name{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:17px;
+    letter-spacing:0.01em;
+    margin:0 0 2px;
+  }
+  .brand-tag{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    color:var(--ink-soft);
+  }
+  .ficha-id{
+    font-size:13px;
+    color:var(--ink-soft);
+    text-align:right;
+    line-height:1.6;
+    white-space:nowrap;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{ text-align:center; padding:38px 0 34px; }
+  .eyebrow{
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.16em;
+    color:var(--red);
+    margin:0 0 16px;
+    opacity:0;
+    animation:fadeUp .6s ease forwards;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(28px, 5vw, 40px);
+    line-height:1.22;
+    margin:0 0 22px;
+    max-width:20ch;
+    margin-left:auto;
+    margin-right:auto;
+    opacity:0;
+    animation:fadeUp .7s ease .08s forwards;
+  }
+  h1 em{ font-style:italic; color:var(--burgundy); font-weight:500; }
+  .subhead{
+    font-size:19px;
+    color:var(--ink-soft);
+    max-width:46ch;
+    margin:0 auto 8px;
+    opacity:0;
+    animation:fadeUp .7s ease .16s forwards;
+  }
+  .subhead.small{ font-size:16.5px; font-style:italic; }
+  @keyframes fadeUp{
+    from{opacity:0; transform:translateY(10px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .eyebrow, h1, .subhead, .reveal{animation:none !important; opacity:1 !important; transform:none !important;}
+  }
+
+  /* ---------- services strip ---------- */
+  .services{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin:34px 0 8px;
+  }
+  .tag{
+    font-size:13.5px;
+    letter-spacing:0.02em;
+    color:var(--card);
+    padding:8px 16px;
+    border-radius:2px;
+    position:relative;
+    white-space:nowrap;
+  }
+  .tag::before{
+    content:"";
+    position:absolute;
+    left:-5px; top:50%;
+    width:9px;height:9px;
+    background:var(--paper);
+    border-radius:50%;
+    transform:translateY(-50%);
+    box-shadow:inset 0 0 0 1px var(--line);
+  }
+  .tag.c1{ background:var(--brown); }
+  .tag.c2{ background:var(--blue); }
+  .tag.c3{ background:var(--olive); }
+  .tag.c4{ background:var(--burgundy); }
+  .tag.c5{ background:#B98338; }
+
+  /* ---------- ficha de exame (card) ---------- */
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:30px 28px;
+    margin:40px 0 32px;
+    position:relative;
+  }
+  .card-title{
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    color:var(--blue);
+    margin:0 0 20px;
+    display:flex;align-items:center;gap:9px;
+  }
+  .card-title::before{
+    content:"";
+    width:6px;height:6px;
+    background:var(--blue);
+    border-radius:50%;
+    display:inline-block;
+  }
+  .symptom-list{list-style:none; margin:0; padding:0;}
+  .symptom-list li{
+    display:flex;
+    align-items:flex-start;
+    gap:13px;
+    padding:13px 0;
+    border-bottom:1px dashed var(--line);
+    font-size:17.5px;
+  }
+  .symptom-list li:last-child{border-bottom:none;}
+  .box{
+    width:16px;height:16px;
+    border:1.5px solid var(--brown);
+    flex-shrink:0;
+    margin-top:4px;
+    position:relative;
+  }
+  .box::after{
+    content:"✓";
+    position:absolute;
+    inset:0;
+    display:flex;align-items:center;justify-content:center;
+    font-size:11px;
+    color:var(--red);
+    font-weight:700;
+  }
+
+  .diagnosis{
+    margin-top:24px;
+    padding-top:22px;
+    border-top:1.5px solid var(--line);
+    display:flex;
+    align-items:center;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+  .stamp{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    color:var(--red);
+    border:2px solid var(--red);
+    border-radius:4px;
+    padding:6px 15px;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    transform:rotate(-4deg);
+    display:inline-block;
+    white-space:nowrap;
+  }
+  .diagnosis p{
+    margin:0;
+    font-size:16px;
+    color:var(--ink-soft);
+  }
+  .diagnosis strong{color:var(--ink);}
+
+  /* ---------- section headers ---------- */
+  .section-label{
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    color:var(--ink-soft);
+    margin:0 0 8px;
+  }
+  .section-heading{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:25px;
+    margin:0 0 6px;
+  }
+  .section-sub{
+    font-size:16.5px;
+    color:var(--ink-soft);
+    margin:0 0 22px;
+  }
+
+  /* ---------- ticket / raio-x ---------- */
+  .ticket{
+    position:relative;
+    border:1.5px solid var(--brown);
+    border-radius:4px;
+    padding:6px;
+    margin-bottom:8px;
+    background:var(--card);
+  }
+  .ticket-inner{
+    position:relative;
+    border-radius:2px;
+    overflow:hidden;
+    aspect-ratio:16/10;
+    background:#1b2430;
+    user-select:none;
+  }
+  .perf{
+    position:absolute;
+    top:50%;
+    left:-7px; right:-7px;
+    height:1px;
+    border-top:2px dashed var(--paper);
+    display:none;
+  }
+  .xray-layer{
+    position:absolute; inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:26px;
+    text-align:center;
+  }
+  .xray-tag{
+    position:absolute;
+    top:14px;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:4px 10px;
+    border-radius:2px;
+    color:#fff;
+  }
+  .xray-after{
+    background:linear-gradient(155deg,#3E6690,#2B4A66);
+  }
+  .xray-after .xray-tag{ left:14px; background:var(--olive); }
+  .xray-after .stat-row{
+    display:flex; gap:22px; flex-wrap:wrap; justify-content:center;
+    margin-top:8px;
+  }
+  .xray-after .stat{ text-align:center; }
+  .xray-after .stat-num{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:26px;
+    color:#fff;
+    line-height:1;
+  }
+  .xray-after .stat-label{
+    font-size:11px;
+    color:#D9E3EC;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    margin-top:4px;
+  }
+  .xray-after .after-caption{
+    font-size:13px;
+    color:#EFE6D2;
+    margin-top:14px;
+    font-style:italic;
+  }
+
+  .xray-before{
+    background:#3a3a38;
+    clip-path:inset(0 0 0 var(--pos, 50%));
+  }
+  .xray-before .xray-tag{ right:14px; background:var(--red); }
+  .xray-before .before-post{
+    width:90px;height:90px;
+    border:1.5px solid #6b6b66;
+    border-radius:2px;
+    margin-bottom:12px;
+    background:repeating-linear-gradient(45deg,#4a4a46,#4a4a46 4px,#3a3a38 4px,#3a3a38 8px);
+  }
+  .xray-before .before-text{
+    font-size:14px;
+    color:#c9c9c2;
+    letter-spacing:0.02em;
+  }
+  .xray-before .before-num{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:22px;
+    color:#e6e6df;
+  }
+
+  .xray-handle-track{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    pointer-events:none;
+  }
+  .xray-handle-line{
+    position:absolute;
+    top:0; bottom:0;
+    left:var(--pos, 50%);
+    width:2px;
+    background:var(--tan);
+    transform:translateX(-1px);
+  }
+  .xray-handle-grip{
+    position:absolute;
+    left:var(--pos, 50%);
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:32px;height:32px;
+    border-radius:50%;
+    background:var(--tan);
+    box-shadow:0 1px 5px rgba(0,0,0,0.35);
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;
+    color:var(--ink);
+  }
+  input[type="range"].xray-range{
+    position:absolute;
+    inset:0;
+    width:100%; height:100%;
+    margin:0;
+    opacity:0;
+    cursor:ew-resize;
+  }
+  .xray-caption{
+    font-size:14.5px;
+    font-style:italic;
+    color:var(--ink-soft);
+    text-align:center;
+    margin:14px 0 40px;
+  }
+
+  /* ---------- testimonials ---------- */
+  .testimonials{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-bottom:38px;
+  }
+  .bubble{
+    max-width:82%;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px 14px 14px 3px;
+    padding:13px 18px;
+    align-self:flex-start;
+    box-shadow:0 1px 0 rgba(0,0,0,0.02);
+  }
+  .bubble:nth-child(2){ align-self:flex-end; border-radius:14px 14px 3px 14px; background:var(--lilac); }
+  .bubble:nth-child(3){ align-self:flex-start; }
+  .bubble:nth-child(4){ align-self:flex-end; border-radius:14px 14px 3px 14px; background:var(--lilac); }
+  .bubble p{
+    margin:0;
+    font-size:17px;
+    font-style:italic;
+    color:var(--ink);
+  }
+  .bubble .who{
+    display:block;
+    margin-top:6px;
+    font-size:11.5px;
+    font-style:normal;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- CTA ---------- */
+  .cta-block{
+    text-align:center;
+    padding:40px 26px;
+    border:1.5px dashed var(--brown);
+    border-radius:6px;
+    margin-bottom:32px;
+    position:relative;
+  }
+  .cta-block h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:24px;
+    margin:0 0 12px;
+  }
+  .cta-block p{
+    font-size:16.5px;
+    color:var(--ink-soft);
+    margin:0 0 24px;
+    max-width:44ch;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .cta-btn{
+    display:inline-block;
+    background:var(--red);
+    color:#fff;
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    font-size:18px;
+    padding:14px 30px;
+    border-radius:4px;
+    text-decoration:none;
+    transition:transform .15s ease, box-shadow .15s ease;
+    box-shadow:0 2px 0 rgba(0,0,0,0.18);
+    letter-spacing:0.01em;
+  }
+  .cta-btn:hover{ transform:translateY(-2px); box-shadow:0 4px 0 rgba(0,0,0,0.18); }
+  .cta-note{
+    margin-top:16px;
+    font-size:13px;
+    color:var(--ink-soft);
+    letter-spacing:0.03em;
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding-top:18px;
+    font-size:12.5px;
+    line-height:1.7;
+    color:#9C8B80;
+    font-style:italic;
+  }
+
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (max-width:480px){
+    .bubble{ max-width:92%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <div class="letterhead">
+    <div class="brand">
+      <div class="crest">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 C7 6 5 10 5 14 C5 18 8 21 12 21 C16 21 19 18 19 14 C19 10 17 6 12 3 Z"/><path d="M12 8 L12 16 M9 11 L15 11"/></svg>
+      </div>
+      <div>
+        <p class="brand-name">Clínica do Criativo</p>
+        <p class="brand-tag">Marketing completo</p>
+      </div>
+    </div>
+    <div class="ficha-id">Ficha nº 001<br>Atendimento de urgência</div>
+  </div>
+
+  <div class="hero">
+    <p class="eyebrow">Diagnóstico rápido</p>
+    <h1>Se a sua empresa apresenta algum desses sintomas, ela corre sério risco de estar com <em>FCB.</em></h1>
+    <p class="subhead small">Já que você está aqui, deixa a gente te examinar rapidinho. Não vai doer, prometo.</p>
+  </div>
+
+  <div class="services reveal">
+    <span class="tag c1">Tráfego pago</span>
+    <span class="tag c2">Copywriting</span>
+    <span class="tag c3">Criação de conteúdo</span>
+    <span class="tag c4">Captação &amp; edição de vídeo</span>
+    <span class="tag c5">Campanhas estratégicas</span>
+  </div>
+
+  <div class="card reveal">
+    <p class="card-title">Ficha de sintomas</p>
+    <ul class="symptom-list">
+      <li><span class="box"></span> Interação baixa, não tem curtida nem da mãe</li>
+      <li><span class="box"></span> Verba de tráfego correndo solta, sem estratégia por trás</li>
+      <li><span class="box"></span> Post criado às pressas, só copiando o concorrente</li>
+      <li><span class="box"></span> Legenda escrita puramente pela inteligência artificial</li>
+      <li><span class="box"></span> O polegar do público nem desacelera ao passar pelo seu anúncio</li>
+    </ul>
+    <div class="diagnosis">
+      <span class="stamp">Confirmado</span>
+      <p><strong>Diagnóstico:</strong> Falta de Criativo Bom (FCB), estágio avançado.</p>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p class="section-label">Exame de imagem</p>
+    <h2 class="section-heading">Raio-X do anúncio</h2>
+    <p class="section-sub">Arrasta a linha e compara. Mesma verba, resultado bem diferente.</p>
+  </div>
+
+  <div class="ticket reveal">
+    <div class="ticket-inner" id="xrayBox">
+      <div class="xray-layer xray-after">
+        <span class="xray-tag">Depois</span>
+        <div class="stat-row">
+          <div class="stat"><div class="stat-num">51,7 mil</div><div class="stat-label">visualizações</div></div>
+          <div class="stat"><div class="stat-num">927</div><div class="stat-label">interações</div></div>
+          <div class="stat"><div class="stat-num">+109</div><div class="stat-label">seguidores</div></div>
+        </div>
+        <p class="after-caption">"Ficamos maravilhados com o material."</p>
+      </div>
+      <div class="xray-layer xray-before" id="xrayBefore">
+        <span class="xray-tag">Antes</span>
+        <div class="before-post"></div>
+        <p class="before-num">0</p>
+        <p class="before-text">curtidas · ninguém via</p>
+      </div>
+      <div class="xray-handle-track">
+        <div class="xray-handle-line"></div>
+        <div class="xray-handle-grip">↔</div>
+      </div>
+      <input type="range" class="xray-range" id="xrayRange" min="0" max="100" value="50" aria-label="Comparar antes e depois do resultado">
+    </div>
+  </div>
+  <p class="xray-caption">Mesmo orçamento de tráfego. Criativo diferente.</p>
+
+  <div class="reveal">
+    <p class="section-label">Prontuário</p>
+    <h2 class="section-heading">Comentário de quem já faz o tratamento há um bom tempo</h2>
+  </div>
+
+  <div class="testimonials reveal">
+    <div class="bubble"><p>"Ameiiii! Parabéns! Excelente trabalho 👏👏👏"<span class="who">Cliente de estética facial</span></p></div>
+    <div class="bubble"><p>"Nossa, perfeito! Vou gravar! Muito muito obrigada 💛"<span class="who">Educadora, criadora de conteúdo</span></p></div>
+    <div class="bubble"><p>"Nossa como vocês são bons! Ficamos maravilhados com o material."<span class="who">Rede de hospedagem</span></p></div>
+    <div class="bubble"><p>"Boa! Você arrasa 💛"<span class="who">Cliente parceira</span></p></div>
+  </div>
+
+  <div class="cta-block reveal">
+    <h3>Tratamento disponível</h3>
+    <p>Uso recomendado: imediato. Sem contraindicações — só resultados. Bora marcar uma consulta gratuita sobre os seus anúncios?</p>
+    <a class="cta-btn" href="https://wa.me/message/LTMJ6XSZCRWTI1" target="_blank" rel="noopener">Marcar consulta →</a>
+    <div class="cta-note">Atendimento presencial ou por chamada de vídeo</div>
+  </div>
+
+  <footer>
+    Bula: este exame é ilustrativo e não substitui uma consultoria completa de marketing digital. Em caso de anúncio parado ou sem conversão, procure imediatamente nossa equipe. Efeitos colaterais incluem: cliente satisfeito, ROI em recuperação e vontade de gravar mais Reels.
+  </footer>
+
+</div>
+
+<script>
+  const range = document.getElementById('xrayRange');
+  const box = document.getElementById('xrayBox');
+  function setPos(v){ box.style.setProperty('--pos', v + '%'); }
+  setPos(range.value);
+  range.addEventListener('input', () => setPos(range.value));
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
