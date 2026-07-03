@@ -6,7 +6,7 @@
 <title>Clínica do Criativo — Marketing completo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Beau+Rivage&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#F7F1E3;
@@ -46,10 +46,7 @@
   }
 
   .script{
-    font-family:'Mrs Saint Delafield', cursive;
-    font-size:1.5em;
-    line-height:1;
-    color:var(--burgundy);
+    font-family:'Beau Rivage', cursive;
   }
 
   /* ---------- letterhead ---------- */
@@ -57,7 +54,7 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:28px 0 18px;
+    padding:26px 0 16px;
     border-bottom:1.5px solid var(--line);
     margin-bottom:8px;
     gap:16px;
@@ -68,25 +65,27 @@
     gap:12px;
   }
   .crest{
-    width:38px;height:38px;
-    border:1.5px solid var(--brown);
+    width:44px;height:44px;
+    border:1.5px solid var(--burgundy);
     border-radius:50%;
     display:flex;align-items:center;justify-content:center;
     flex-shrink:0;
+    color:var(--burgundy);
   }
-  .crest svg{width:18px;height:18px;stroke:var(--brown);}
+  .crest svg{width:22px;height:22px;stroke:var(--burgundy);}
   .brand-name{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:17px;
-    letter-spacing:0.01em;
+    font-family:'Beau Rivage', cursive;
+    font-size:30px;
+    line-height:1;
+    color:var(--burgundy);
     margin:0 0 2px;
   }
   .brand-tag{
-    font-size:11px;
+    font-size:10.5px;
     text-transform:uppercase;
-    letter-spacing:0.14em;
+    letter-spacing:0.2em;
     color:var(--ink-soft);
+    font-weight:600;
   }
   .ficha-id{
     font-size:13px;
@@ -97,29 +96,40 @@
   }
 
   /* ---------- hero ---------- */
-  .hero{ text-align:center; padding:38px 0 34px; }
+  .hero{ text-align:center; padding:34px 0 34px; }
   .eyebrow{
     font-size:13px;
     text-transform:uppercase;
     letter-spacing:0.16em;
     color:var(--red);
-    margin:0 0 16px;
+    margin:0 0 14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
     opacity:0;
     animation:fadeUp .6s ease forwards;
   }
+  .eyebrow svg{ width:15px; height:15px; stroke:var(--red); flex-shrink:0; }
   h1{
     font-family:'Fraunces', serif;
     font-weight:600;
     font-size:clamp(28px, 5vw, 40px);
-    line-height:1.22;
+    line-height:1.24;
     margin:0 0 22px;
-    max-width:20ch;
+    max-width:22ch;
     margin-left:auto;
     margin-right:auto;
     opacity:0;
     animation:fadeUp .7s ease .08s forwards;
   }
   h1 em{ font-style:italic; color:var(--burgundy); font-weight:500; }
+  h1 .highlight{
+    font-style:normal;
+    color:var(--red);
+    background:linear-gradient(180deg, transparent 62%, rgba(163,44,37,0.16) 62%);
+    padding:0 2px;
+  }
   .subhead{
     font-size:19px;
     color:var(--ink-soft);
@@ -169,15 +179,34 @@
   .tag.c3{ background:var(--olive); }
   .tag.c4{ background:var(--burgundy); }
   .tag.c5{ background:#B98338; }
+  .tag.c6{ background:var(--red); }
 
   /* ---------- ficha de exame (card) ---------- */
   .card{
-    background:var(--card);
+    background:
+      repeating-linear-gradient(var(--card) 0px, var(--card) 31px, rgba(43,31,34,0.05) 32px),
+      var(--card);
     border:1px solid var(--line);
     border-radius:3px;
-    padding:30px 28px;
+    padding:30px 28px 30px 40px;
     margin:40px 0 32px;
     position:relative;
+    overflow:hidden;
+  }
+  .card::before{
+    content:"";
+    position:absolute;
+    left:22px; top:0; bottom:0;
+    width:1.5px;
+    background:var(--rose);
+  }
+  .card-scope{
+    position:absolute;
+    right:-6px; top:-10px;
+    width:110px;height:110px;
+    opacity:0.07;
+    stroke:var(--brown);
+    pointer-events:none;
   }
   .card-title{
     font-size:13px;
@@ -186,15 +215,15 @@
     color:var(--blue);
     margin:0 0 20px;
     display:flex;align-items:center;gap:9px;
+    position:relative;
   }
-  .card-title::before{
-    content:"";
-    width:6px;height:6px;
-    background:var(--blue);
-    border-radius:50%;
-    display:inline-block;
+  .card-title .rx{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:19px;
+    color:var(--burgundy);
   }
-  .symptom-list{list-style:none; margin:0; padding:0;}
+  .symptom-list{list-style:none; margin:0; padding:0; position:relative;}
   .symptom-list li{
     display:flex;
     align-items:flex-start;
@@ -207,16 +236,17 @@
   .box{
     width:16px;height:16px;
     border:1.5px solid var(--brown);
+    border-radius:50%;
     flex-shrink:0;
     margin-top:4px;
     position:relative;
   }
   .box::after{
-    content:"✓";
+    content:"+";
     position:absolute;
     inset:0;
     display:flex;align-items:center;justify-content:center;
-    font-size:11px;
+    font-size:13px;
     color:var(--red);
     font-weight:700;
   }
@@ -271,103 +301,99 @@
     margin:0 0 22px;
   }
 
-  /* ---------- ticket / raio-x ---------- */
+  /* ---------- raio-x (phone screenshot mock) ---------- */
   .ticket{
     position:relative;
     border:1.5px solid var(--brown);
-    border-radius:4px;
+    border-radius:6px;
     padding:6px;
     margin-bottom:8px;
     background:var(--card);
   }
   .ticket-inner{
     position:relative;
-    border-radius:2px;
+    border-radius:3px;
     overflow:hidden;
-    aspect-ratio:16/10;
-    background:#1b2430;
+    min-height:430px;
+    background:#E9DFC9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     user-select:none;
-  }
-  .perf{
-    position:absolute;
-    top:50%;
-    left:-7px; right:-7px;
-    height:1px;
-    border-top:2px dashed var(--paper);
-    display:none;
+    padding:26px 16px;
   }
   .xray-layer{
     position:absolute; inset:0;
     display:flex;
     flex-direction:column;
-    justify-content:center;
     align-items:center;
-    padding:26px;
-    text-align:center;
+    justify-content:center;
+    padding:26px 16px;
   }
   .xray-tag{
     position:absolute;
     top:14px;
-    font-size:12px;
+    font-size:11.5px;
     letter-spacing:0.1em;
     text-transform:uppercase;
     padding:4px 10px;
     border-radius:2px;
     color:#fff;
-  }
-  .xray-after{
-    background:linear-gradient(155deg,#3E6690,#2B4A66);
+    z-index:2;
   }
   .xray-after .xray-tag{ left:14px; background:var(--olive); }
-  .xray-after .stat-row{
-    display:flex; gap:22px; flex-wrap:wrap; justify-content:center;
-    margin-top:8px;
-  }
-  .xray-after .stat{ text-align:center; }
-  .xray-after .stat-num{
-    font-family:'Fraunces', serif;
-    font-weight:700;
-    font-size:26px;
-    color:#fff;
-    line-height:1;
-  }
-  .xray-after .stat-label{
-    font-size:11px;
-    color:#D9E3EC;
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-    margin-top:4px;
-  }
-  .xray-after .after-caption{
-    font-size:13px;
-    color:#EFE6D2;
-    margin-top:14px;
-    font-style:italic;
-  }
-
+  .xray-before .xray-tag{ right:14px; background:var(--red); }
   .xray-before{
-    background:#3a3a38;
     clip-path:inset(0 0 0 var(--pos, 50%));
   }
-  .xray-before .xray-tag{ right:14px; background:var(--red); }
-  .xray-before .before-post{
-    width:90px;height:90px;
-    border:1.5px solid #6b6b66;
-    border-radius:2px;
-    margin-bottom:12px;
-    background:repeating-linear-gradient(45deg,#4a4a46,#4a4a46 4px,#3a3a38 4px,#3a3a38 8px);
+
+  .phone{
+    width:208px;
+    border-radius:24px;
+    border:5px solid #241C22;
+    background:#fff;
+    overflow:hidden;
+    box-shadow:0 10px 24px rgba(43,31,34,0.28);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
   }
-  .xray-before .before-text{
-    font-size:14px;
-    color:#c9c9c2;
-    letter-spacing:0.02em;
+  .phone-status{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:7px 13px 3px;
+    font-size:9.5px; font-weight:700; color:#111;
   }
-  .xray-before .before-num{
-    font-family:'Fraunces', serif;
+  .phone-status .icons{ display:flex; gap:3px; align-items:center; }
+  .phone-status .icons span{
+    display:inline-block; width:9px; height:6px; border:1px solid #111; border-radius:1px;
+  }
+  .ig-topbar{
+    text-align:center;
+    font-size:12px;
     font-weight:700;
-    font-size:22px;
-    color:#e6e6df;
+    color:#111;
+    padding:5px 0 7px;
+    border-bottom:1px solid #eee;
   }
+  .ig-body{ padding:12px 15px 16px; }
+  .ig-label{ font-size:9.5px; color:#666; margin:0 0 2px; }
+  .ig-num{ font-size:24px; font-weight:800; color:#111; margin:0 0 10px; letter-spacing:-0.01em; }
+  .ig-row{
+    display:flex; justify-content:space-between;
+    font-size:10.5px; color:#333;
+    padding:5px 0;
+    border-top:1px solid #f1f1f1;
+  }
+  .ig-row.bold{ font-weight:700; color:#111; }
+  .ig-row.sub{ padding-left:8px; color:#777; font-size:10px; }
+  .ig-caption{
+    margin:10px 0 0;
+    font-size:10px;
+    color:#8c8c8c;
+    font-style:italic;
+    text-align:center;
+  }
+  .phone.muted .ig-num, .phone.muted .ig-row{ color:#9c9c9c; }
+  .phone.muted .ig-num{ color:#a8a8a2; }
+  .phone.muted{ filter:grayscale(0.5); }
 
   .xray-handle-track{
     position:absolute;
@@ -375,6 +401,7 @@
     display:flex;
     align-items:center;
     pointer-events:none;
+    z-index:3;
   }
   .xray-handle-line{
     position:absolute;
@@ -404,6 +431,7 @@
     margin:0;
     opacity:0;
     cursor:ew-resize;
+    z-index:4;
   }
   .xray-caption{
     font-size:14.5px;
@@ -415,61 +443,99 @@
 
   /* ---------- testimonials ---------- */
   .testimonials{
-    display:flex;
-    flex-direction:column;
+    display:grid;
+    grid-template-columns:1fr 1fr;
     gap:12px;
     margin-bottom:38px;
   }
-  .bubble{
-    max-width:82%;
+  .note{
     background:var(--card);
     border:1px solid var(--line);
-    border-radius:14px 14px 14px 3px;
-    padding:13px 18px;
-    align-self:flex-start;
-    box-shadow:0 1px 0 rgba(0,0,0,0.02);
+    border-radius:4px;
+    padding:16px 18px;
+    position:relative;
   }
-  .bubble:nth-child(2){ align-self:flex-end; border-radius:14px 14px 3px 14px; background:var(--lilac); }
-  .bubble:nth-child(3){ align-self:flex-start; }
-  .bubble:nth-child(4){ align-self:flex-end; border-radius:14px 14px 3px 14px; background:var(--lilac); }
-  .bubble p{
-    margin:0;
-    font-size:17px;
+  .note::before{
+    content:"“";
+    font-family:'Fraunces', serif;
+    font-size:34px;
+    color:var(--rose);
+    position:absolute;
+    top:4px; left:10px;
+    line-height:1;
+  }
+  .note p{
+    margin:14px 0 0;
+    font-size:15.5px;
     font-style:italic;
     color:var(--ink);
+    line-height:1.4;
   }
-  .bubble .who{
+  .note .who{
     display:block;
-    margin-top:6px;
-    font-size:11.5px;
+    margin-top:8px;
+    font-size:10.5px;
     font-style:normal;
     text-transform:uppercase;
-    letter-spacing:0.08em;
+    letter-spacing:0.07em;
     color:var(--ink-soft);
   }
+  @media (max-width:560px){
+    .testimonials{ grid-template-columns:1fr; }
+  }
 
-  /* ---------- CTA ---------- */
+  /* ---------- CTA / bula ---------- */
   .cta-block{
     text-align:center;
-    padding:40px 26px;
+    padding:0 0 34px;
     border:1.5px dashed var(--brown);
     border-radius:6px;
     margin-bottom:32px;
     position:relative;
+    overflow:hidden;
   }
+  .tarja{
+    background:var(--red);
+    color:#fff;
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    padding:7px 10px;
+    margin-bottom:24px;
+  }
+  .pill-icon{ width:34px; height:auto; margin:0 auto 12px; display:block; }
   .cta-block h3{
     font-family:'Fraunces', serif;
     font-weight:600;
     font-size:24px;
-    margin:0 0 12px;
+    margin:0 0 16px;
+    padding:0 26px;
   }
-  .cta-block p{
+  .bula-fields{
+    display:inline-block;
+    text-align:left;
+    max-width:380px;
+    margin:0 auto 22px;
+    padding:0 26px;
+    font-size:14.5px;
+  }
+  .bula-fields .row{
+    display:flex;
+    gap:6px;
+    padding:5px 0;
+    border-bottom:1px dashed var(--line);
+  }
+  .bula-fields .row:last-child{ border-bottom:none; }
+  .bula-fields .k{ font-style:italic; color:var(--blue); white-space:nowrap; }
+  .bula-fields .v{ color:var(--ink); }
+  .cta-block p.desc{
     font-size:16.5px;
     color:var(--ink-soft);
     margin:0 0 24px;
     max-width:44ch;
     margin-left:auto;
     margin-right:auto;
+    padding:0 26px;
   }
   .cta-btn{
     display:inline-block;
@@ -505,10 +571,6 @@
 
   .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
   .reveal.in{ opacity:1; transform:translateY(0); }
-
-  @media (max-width:480px){
-    .bubble{ max-width:92%; }
-  }
 </style>
 </head>
 <body>
@@ -518,7 +580,12 @@
   <div class="letterhead">
     <div class="brand">
       <div class="crest">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 C7 6 5 10 5 14 C5 18 8 21 12 21 C16 21 19 18 19 14 C19 10 17 6 12 3 Z"/><path d="M12 8 L12 16 M9 11 L15 11"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3 L17.5 9.8 C18.2 10.7 18.2 12 17.5 13 L13.6 19.6 C12.9 20.8 11.1 20.8 10.4 19.6 L6.5 13 C5.8 12 5.8 10.7 6.5 9.8 Z"/>
+          <path d="M12 8.6 L12 16.4"/>
+          <circle cx="12" cy="7.4" r="0.9"/>
+          <path d="M7.2 20.5 C9 22.3 15 22.3 16.8 20.5"/>
+        </svg>
       </div>
       <div>
         <p class="brand-name">Clínica do Criativo</p>
@@ -529,8 +596,11 @@
   </div>
 
   <div class="hero">
-    <p class="eyebrow">Diagnóstico rápido</p>
-    <h1>Se a sua empresa apresenta algum desses sintomas, ela corre sério risco de estar com <em>FCB.</em></h1>
+    <p class="eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v6a4 4 0 0 0 8 0V2"/><path d="M12 12v3a4 4 0 0 0 4 4h1a3 3 0 0 0 3-3v-1.5"/><circle cx="20" cy="9.5" r="2"/></svg>
+      Diagnóstico rápido
+    </p>
+    <h1>Se a sua empresa apresenta algum desses sintomas, ela <span class="highlight">corre sério risco</span> de estar com <em>FCB.</em></h1>
     <p class="subhead small">Já que você está aqui, deixa a gente te examinar rapidinho. Não vai doer, prometo.</p>
   </div>
 
@@ -540,10 +610,12 @@
     <span class="tag c3">Criação de conteúdo</span>
     <span class="tag c4">Captação &amp; edição de vídeo</span>
     <span class="tag c5">Campanhas estratégicas</span>
+    <span class="tag c6">Designer gráfico</span>
   </div>
 
   <div class="card reveal">
-    <p class="card-title">Ficha de sintomas</p>
+    <svg class="card-scope" viewBox="0 0 24 24" fill="none" stroke-width="1.2"><path d="M8 2v6a4 4 0 0 0 8 0V2"/><path d="M12 12v3a4 4 0 0 0 4 4h1a3 3 0 0 0 3-3v-1.5"/><circle cx="20" cy="9.5" r="2"/><path d="M6 3v6"/></svg>
+    <p class="card-title"><span class="rx">℞</span> Ficha de sintomas</p>
     <ul class="symptom-list">
       <li><span class="box"></span> Interação baixa, não tem curtida nem da mãe</li>
       <li><span class="box"></span> Verba de tráfego correndo solta, sem estratégia por trás</li>
@@ -567,18 +639,44 @@
     <div class="ticket-inner" id="xrayBox">
       <div class="xray-layer xray-after">
         <span class="xray-tag">Depois</span>
-        <div class="stat-row">
-          <div class="stat"><div class="stat-num">51,7 mil</div><div class="stat-label">visualizações</div></div>
-          <div class="stat"><div class="stat-num">927</div><div class="stat-label">interações</div></div>
-          <div class="stat"><div class="stat-num">+109</div><div class="stat-label">seguidores</div></div>
+        <div class="phone">
+          <div class="phone-status">
+            <span>16:56</span>
+            <span class="icons"><span></span><span></span><span></span></span>
+          </div>
+          <div class="ig-topbar">Insights</div>
+          <div class="ig-body">
+            <p class="ig-label">Visualizações</p>
+            <p class="ig-num">51.734</p>
+            <div class="ig-row"><span>Alcance</span><span>29.319</span></div>
+            <div class="ig-row bold"><span>Interações</span><span>927</span></div>
+            <div class="ig-row sub"><span>Curtidas</span><span>795</span></div>
+            <div class="ig-row sub"><span>Compartilhamentos</span><span>59</span></div>
+            <div class="ig-row sub"><span>Comentários</span><span>34</span></div>
+            <div class="ig-row"><span>Começaram a seguir</span><span>109</span></div>
+          </div>
         </div>
-        <p class="after-caption">"Ficamos maravilhados com o material."</p>
       </div>
       <div class="xray-layer xray-before" id="xrayBefore">
         <span class="xray-tag">Antes</span>
-        <div class="before-post"></div>
-        <p class="before-num">0</p>
-        <p class="before-text">curtidas · ninguém via</p>
+        <div class="phone muted">
+          <div class="phone-status">
+            <span>16:56</span>
+            <span class="icons"><span></span><span></span><span></span></span>
+          </div>
+          <div class="ig-topbar">Insights</div>
+          <div class="ig-body">
+            <p class="ig-label">Visualizações</p>
+            <p class="ig-num">0</p>
+            <div class="ig-row"><span>Alcance</span><span>0</span></div>
+            <div class="ig-row bold"><span>Interações</span><span>0</span></div>
+            <div class="ig-row sub"><span>Curtidas</span><span>0</span></div>
+            <div class="ig-row sub"><span>Compartilhamentos</span><span>0</span></div>
+            <div class="ig-row sub"><span>Comentários</span><span>0</span></div>
+            <div class="ig-row"><span>Começaram a seguir</span><span>0</span></div>
+            <p class="ig-caption">ninguém via</p>
+          </div>
+        </div>
       </div>
       <div class="xray-handle-track">
         <div class="xray-handle-line"></div>
@@ -595,15 +693,30 @@
   </div>
 
   <div class="testimonials reveal">
-    <div class="bubble"><p>"Ameiiii! Parabéns! Excelente trabalho 👏👏👏"<span class="who">Cliente de estética facial</span></p></div>
-    <div class="bubble"><p>"Nossa, perfeito! Vou gravar! Muito muito obrigada 💛"<span class="who">Educadora, criadora de conteúdo</span></p></div>
-    <div class="bubble"><p>"Nossa como vocês são bons! Ficamos maravilhados com o material."<span class="who">Rede de hospedagem</span></p></div>
-    <div class="bubble"><p>"Boa! Você arrasa 💛"<span class="who">Cliente parceira</span></p></div>
+    <div class="note"><p>Ameiiii! Parabéns! Excelente trabalho 👏👏👏<span class="who">Cliente de estética facial</span></p></div>
+    <div class="note"><p>Nossa, perfeito! Vou gravar! Muito muito obrigada 💛<span class="who">Educadora, criadora de conteúdo</span></p></div>
+    <div class="note"><p>Nossa como vocês são bons! Ficamos maravilhados com o material.<span class="who">Rede de hospedagem</span></p></div>
+    <div class="note"><p>Boa! Você arrasa 💛<span class="who">Cliente parceira</span></p></div>
+    <div class="note"><p>Sim! E acho que estamos conseguindo muito bem 🥹<span class="who">Cliente parceira</span></p></div>
+    <div class="note"><p>Está mesmo!!! Os conteúdos estão lindos e bem diversificados 🧡<span class="who">Equipe comercial de cliente</span></p></div>
+    <div class="note"><p>Ficou perfeito, super assertivo. Vamos em frente, arrasou 🚀<span class="who">Cliente de conteúdo estratégico</span></p></div>
   </div>
 
   <div class="cta-block reveal">
+    <div class="tarja">Venda livre · sem prescrição necessária</div>
+    <svg class="pill-icon" viewBox="0 0 40 18" fill="none">
+      <path d="M9 1 H31 A8 8 0 0 1 31 17 H9 A8 8 0 0 1 9 1 Z" fill="none" stroke="#6E4C46" stroke-width="1.3"/>
+      <path d="M9 1 A8 8 0 0 0 9 17 H20 V1 Z" fill="#A32C25"/>
+      <line x1="20" y1="1" x2="20" y2="17" stroke="#6E4C46" stroke-width="1.3"/>
+    </svg>
     <h3>Tratamento disponível</h3>
-    <p>Uso recomendado: imediato. Sem contraindicações — só resultados. Bora marcar uma consulta gratuita sobre os seus anúncios?</p>
+    <div class="bula-fields">
+      <div class="row"><span class="k">Princípio ativo:</span><span class="v">estratégia + criatividade</span></div>
+      <div class="row"><span class="k">Indicado para:</span><span class="v">marcas com sintomas de FCB</span></div>
+      <div class="row"><span class="k">Posologia:</span><span class="v">1 consulta gratuita</span></div>
+      <div class="row"><span class="k">Contraindicações:</span><span class="v">nenhuma conhecida</span></div>
+    </div>
+    <p class="desc">Uso recomendado: imediato. Sem contraindicações — só resultados. Bora marcar uma consulta gratuita sobre os seus anúncios?</p>
     <a class="cta-btn" href="https://wa.me/message/LTMJ6XSZCRWTI1" target="_blank" rel="noopener">Marcar consulta →</a>
     <div class="cta-note">Atendimento presencial ou por chamada de vídeo</div>
   </div>
